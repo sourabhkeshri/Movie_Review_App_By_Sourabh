@@ -44,10 +44,8 @@ public class MovieController {
 	@GetMapping("/showFormForUpdate/{id}")
 	public String showFormForUpdate(@PathVariable ( value = "id") long id, Model model) {
 		
-		// get employee from the service
 		Movie movie = movieService.getMovieById(id);
 		
-		// set employee as a model attribute to pre-populate the form
 		model.addAttribute("movie", movie);
 		return "update_movie";
 	}
@@ -55,7 +53,6 @@ public class MovieController {
 	@GetMapping("/deleteMovie/{id}")
 	public String deleteMovie(@PathVariable (value = "id") long id) {
 		
-		// call delete employee method 
 		this.movieService.deleteMovieById(id);
 		return "redirect:/";
 	}
